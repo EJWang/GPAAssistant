@@ -3,14 +3,22 @@ package view;
 import javax.swing.*;
 
 /**
- * Created by root on 4/21/16.
+ * The main frame of the GPAAssistant user interface.
+ *
+ * @author EJWang
  */
 public class Frame extends JFrame {
 
+  /**
+   * Construct a Frame.
+   */
   public Frame() {
     setTitle("GPAAssistant V1.0 by EJWang");
     setSize(300, 200);
-    setLocation(0, 0);
+    setLocation(250, 250);
+
+    // Terminate all background tasks once frame is closing
+    addWindowListener(new Terminator());
   }
 
 }
