@@ -1,4 +1,7 @@
-package foundation;
+package module;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A student whom is focus on academic career.
@@ -8,13 +11,15 @@ package foundation;
 public class Student {
 
   private final String name;
+  private List<Course> academicHistory;
 
   /**
-   * Construct a foundation.Student.
+   * Construct a module.Student.
    *
    * @param name The name of the student
    */
   public Student(String name) {
     this.name = name;
+    academicHistory = new ArrayList<>();
   }
 }

@@ -1,6 +1,6 @@
-package operator;
+package module;
 
-import foundation.Course;
+import module.Course;
 
 /**
  * The course analyzer uses to analyze the mark that student already earned
@@ -15,7 +15,7 @@ public class CourseAnalyzer {
   private Course course;
 
   /**
-   * Construct a operator.CourseAnalyzer.
+   * Construct a module.CourseAnalyzer.
    *
    * @param course The course to be analyzed
    */
