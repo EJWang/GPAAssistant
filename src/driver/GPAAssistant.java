@@ -1,11 +1,13 @@
 package driver;
 
+import view.Frame;
+
 /**
  * The entry-point of the GPAAssistant.
  *
  * @author EJWang
  */
-public class Main {
+public class GPAAssistant {
 
   /**
    * The entry-point of the GPAAssistant.
@@ -14,6 +16,7 @@ public class Main {
    */
   public static void main(String[] args) {
 
-    // TODO: Completed the running statement
+    Frame viewFrame = new Frame();
+    viewFrame.show();
   }
 }
