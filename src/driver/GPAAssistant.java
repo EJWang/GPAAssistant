@@ -1,6 +1,10 @@
 package driver;
 
-import view.Frame;
+import controller.Controller;
+import sun.applet.Main;
+import view.MainFrame;
+
+import java.awt.*;
 
 /**
  * The entry-point of the GPAAssistant.
@@ -14,9 +18,10 @@ public class GPAAssistant {
    *
    * @param args The array of arguments pass to this function
    */
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
 
-    Frame viewFrame = new Frame();
-    viewFrame.show();
+    Controller controller = new Controller();
+    MainFrame frame = new MainFrame(controller);
+    frame.setVisible(true);
   }
 }
