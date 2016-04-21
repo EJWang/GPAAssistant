@@ -13,7 +13,7 @@ public class Terminator extends WindowAdapter {
   /**
    * Terminate all the background program once the frame is close.
    *
-   * @param windowEvent The windwos event
+   * @param windowEvent The involved window event
    */
   @Override public void windowClosing(WindowEvent windowEvent) {
     System.exit(0);
