@@ -1,11 +1,8 @@
 package view;
 
 import controller.Controller;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import java.awt.*;
 
 /**
  * The main frame of the GPAAssistant user interface.
@@ -19,26 +16,50 @@ public class MainFrame extends JFrame {
   /**
    * Construct a MainFrame.
    */
-  public MainFrame(Controller controller) throws Exception {
+  public MainFrame(Controller controller) {
     this.controller = controller;
-    initUI();
+    setTitle("GPA Assistant");
+    setSize(400,400);
+    setLocationRelativeTo(null);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setVisible(true);
+
+    // Load background image
+//    setContentPane(new Background());
+
+    JLabel welcome = new JLabel("Welcome to use GPA Assistant!");
+    add(welcome);
+
   }
 
-  private void initUI() throws Exception {
+  /**
+   * Load old user interface.
+   */
+  private void oldUser() {
+    JButton first = new JButton("1. View Academic History");
+    JButton second = new JButton("2. View Specified Course");
+    JButton third = new JButton("3. Manage Course");
 
-    setTitle("GPA Assistant");
-    setSize(300, 200);
-    // Display at the centre of the screen
-    setLocationRelativeTo(null);
-    // Terminate all background tasks once frame is closing
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    add(first);
+    add(second);
+    add(third);
+  }
 
-    JLabel welcomePrompt = new JLabel("Welcome to use GPA Assistant!");
-    BufferedImage myPicture = ImageIO.read(new File("img/backgrounds.jpg"));
-    JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+  private void newUser() {
+    setLayout(new FlowLayout());
+    JLabel name = new JLabel("You are new user, please enter your name");
+    JTextField studentName = new JTextField(15);
 
-    add(welcomePrompt);
-    add(picLabel);
+    JLabel school = new JLabel("Please enter your school's name");
+    JTextField schoolName = new JTextField(15);
+
+    JButton confirm = new JButton("Ok");
+
+    add(name);
+    add(studentName);
+    add(school);
+    add(schoolName);
+    add(confirm);
   }
 
 }
