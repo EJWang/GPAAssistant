@@ -22,12 +22,13 @@ public class DataConfigurator {
   }
 
   /**
-   * Load data from configuration file.
+   * Load student information data from configuration file and get the Student
+   * object base on the information.
    *
    * @throws IOException if failed to load data from configuration file
    */
   public Student loadData() throws IOException {
-    // Information read from file
+    // Student information read from configuration file
     String studentName = "";
     String schoolName = "";
     List<String[]> courseList = new ArrayList<>();
@@ -46,26 +47,12 @@ public class DataConfigurator {
     }
     br.close();
 
-    // Create student object and add course information
+    // Establish student object and add course information to the student
     student = new Student(studentName, schoolName);
-    updateCourseInformation(courseList);
-    return student;
-  }
-
-  /**
-   * Add course information into the student object.
-   *
-   * @param courseList The list of course information
-   */
-  private void updateCourseInformation(List<String[]> courseList) {
-    Course course;
-    String courseCode;
-    boolean isCompleted;
-
-    for (String[] info : courseList) {
-      courseCode = info[0];
-      isCompleted = info[1].equals("COMPLETE");
+    for (String[] courseInfo : courseList) {
+      student.addCourse(new Course(courseInfo));
     }
+    return student;
   }
 
   /**
