@@ -61,10 +61,32 @@ public class DataConfigurator {
    * @throws IOException if failed to save data info the configuration file
    */
   public void saveData() throws IOException {
-    FileWriter fileWriter = new FileWriter(config);
-    fileWriter.write("STUDENT_NAME:" + student.getStudentName() + "\n");
-    fileWriter.write("SCHOOL_NAME:" + student.getSchoolName() + "\n");
+    // The basic information of the student
+    String basicInfo = "STUDENT_NAME:" + student.getStudentName() +
+        "\nSCHOOL_NAME:" + student.getSchoolName() + "\n";
 
+    // Create StringBuilder object to buffer student information
+    StringBuilder data = new StringBuilder(basicInfo);
+
+    // Append course information to the data
+    for (Course course : student.getAcademicHistory()) {
+      String courseInfo =
+          "COURSE:" + course.getCourseCode() + "," + course.getStatus() +
+              "," + course.getEarnedGrade();
+      data.append(courseInfo);
+
+      for (CoursePartWork work : course.getPartWorks()) {
+        String partWorkInfo =
+            "," + work.getName() + ":" + work.getCategory() + ":" + work
+                .getGrade() + ":" + work.getWeight();
+        data.append(partWorkInfo);
+      }
+      data.append("\n");
+    }
+
+    // Create FileWriter object to write information to configuration file
+    FileWriter fileWriter = new FileWriter(config);
+    fileWriter.write(data.toString());
     fileWriter.close();
   }
 }
