@@ -8,7 +8,7 @@ package module;
 public class Course {
 
   private final String courseCode;
-  private String courseStatus;
+  private String status;
   private double earnedGrade;
 
   /**
@@ -18,7 +18,7 @@ public class Course {
    */
   public Course(String[] courseInfo) {
     courseCode = courseInfo[0];
-    courseStatus = courseInfo[1];
+    status = courseInfo[1];
     earnedGrade = Double.parseDouble(courseInfo[2]);
   }
 
@@ -32,12 +32,12 @@ public class Course {
   }
 
   /**
-   * Return true if this course is complete.
+   * Get the status of this course
    *
-   * @return True if this course is complete
+   * @return The status of this course
    */
-  public boolean isCompleted() {
-    return courseStatus.equals("COMPLETE");
+  public String getStatus() {
+    return status;
   }
 
   /**
