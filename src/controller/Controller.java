@@ -1,7 +1,9 @@
 package controller;
 
-import module.Configurator;
 import module.Student;
+import view.MainFrame;
+import view.NewUserFrame;
+import view.OldUserFrame;
 
 /**
  * The Controller uses to dispatch different part of the system in order to
@@ -14,33 +16,24 @@ public class Controller {
   // The student object which stores all the academic information
   private Student student;
 
-  // The configurator uses to load file or save file
-  private Configurator configurator;
-
-  // True if the user has previously used this program
-  private boolean isConfigured;
+  private MainFrame mainFrame;
+  private NewUserFrame newUserFrame;
+  private OldUserFrame oldUserFrame;
 
   /**
    * Construct the Controller.
    */
   public Controller() {
-    try {
-      configurator = new Configurator();
-      student = configurator.loadData();
-      isConfigured = true;
-
-    } catch (Exception e) {
-      isConfigured = false;
-    }
+    mainFrame = new MainFrame(this);
+    mainFrame.setVisible(true);
   }
 
-  /**
-   * Return true if the user has configuration file stored.
-   *
-   * @return True if user has configuration file stored
-   */
-  public boolean isConfigured() {
-    return isConfigured;
+  public void showMainFrame() {
+
+  }
+
+  public void showOperateFrame() {
+
   }
 
   /**
@@ -51,7 +44,7 @@ public class Controller {
   public boolean actionExit() {
     try {
       // Call configurator to save the data into the configuration file
-      configurator.saveData();
+
       return true;
 
     } catch (Exception e) {
