@@ -17,8 +17,8 @@ public class DataConfigurator {
   /**
    * Construct a DataConfigurator.
    */
-  public DataConfigurator(Student student) {
-    config = new File("info.conf");
+  public DataConfigurator(String fileName) {
+    config = new File(fileName);
   }
 
   /**
