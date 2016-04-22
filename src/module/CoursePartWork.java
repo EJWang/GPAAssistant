@@ -12,7 +12,7 @@ public class CoursePartWork {
   private String category;
   private double weight;
 
-  private double grade = 0;
+  private double grade;
 
   private boolean hasGrade;
 
@@ -23,10 +23,13 @@ public class CoursePartWork {
    * @param category The category may be ATTENDANCE, HOMEWORK, TEST or UNKNOWN
    * @param weight   The weight to the final grade
    */
-  public CoursePartWork(String name, String category, double weight) {
+  public CoursePartWork(String name, String category, String grade,
+      double weight) {
     this.name = name;
     this.category = category;
     this.weight = weight;
+    hasGrade = !grade.equals("IPR");
+    this.grade = hasGrade ? Double.parseDouble(grade) : 0.0;
   }
 
   /**
@@ -99,6 +102,15 @@ public class CoursePartWork {
    */
   public void setGrade(double grade) {
     this.grade = grade;
+  }
+
+  /**
+   * Return true if this course part work already has been graded.
+   *
+   * @return True if this course park work has grade
+   */
+  public boolean hasGrade() {
+    return hasGrade;
   }
 
 }
