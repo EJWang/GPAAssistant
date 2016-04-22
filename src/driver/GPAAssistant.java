@@ -1,10 +1,6 @@
 package driver;
 
 import controller.Controller;
-import sun.applet.Main;
-import view.MainFrame;
-
-import java.awt.*;
 
 /**
  * The entry-point of the GPAAssistant.
@@ -20,8 +16,6 @@ public class GPAAssistant {
    */
   public static void main(String[] args) throws Exception {
 
-    Controller controller = new Controller();
-    MainFrame frame = new MainFrame(controller);
-    frame.setVisible(true);
+    new Controller();
   }
 }
