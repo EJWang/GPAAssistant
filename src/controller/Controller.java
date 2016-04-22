@@ -1,9 +1,12 @@
 package controller;
 
+import module.DataConfigurator;
 import module.Student;
 import view.MainFrame;
 import view.NewUserFrame;
 import view.OldUserFrame;
+
+import javax.xml.crypto.Data;
 
 /**
  * The Controller uses to dispatch different part of the system in order to
@@ -16,6 +19,8 @@ public class Controller {
   // The student object which stores all the academic information
   private Student student;
 
+  private DataConfigurator configurator;
+
   private MainFrame mainFrame;
   private NewUserFrame newUserFrame;
   private OldUserFrame oldUserFrame;
@@ -24,6 +29,7 @@ public class Controller {
    * Construct the Controller.
    */
   public Controller() {
+    configurator = new DataConfigurator("info.conf");
     mainFrame = new MainFrame(this);
     mainFrame.setVisible(true);
   }
