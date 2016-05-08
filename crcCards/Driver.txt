@@ -1,0 +1,9 @@
+class name: Driver
+Parent class (if any): None
+Subclasses (if any): None
+
+Responsibilities:
+*Parse the stimulation of modules  to the controller
+
+Collaborators:
+None

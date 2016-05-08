@@ -1,0 +1,10 @@
+class name: Student
+
+Parent class (if any): None
+Subclasses (if any): ExcellentStudent, AverageStudent, PoorStudent
+
+Responsibilities:
+*Store the information of an individual student
+
+Collaborators:
+Course, Configurator, CoursePartWork
