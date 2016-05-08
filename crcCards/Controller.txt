@@ -1,0 +1,10 @@
+class name: Controller
+
+Parent class (if any): None
+Subclasses (if any): None
+
+Responsibilities:
+*Navigate and display the content of user interface
+
+Collaborators:
+Driver
