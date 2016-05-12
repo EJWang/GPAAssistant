@@ -10,8 +10,9 @@ public class CoursePartWork {
 
   private String name;
   private String category;
-  private String grade;
+  private double grade;
   private double weight;
+  private String status;
 
   /**
    * Construct a CoursePartWork.
@@ -19,10 +20,12 @@ public class CoursePartWork {
    * @param name     The name of this course part work
    * @param category The category may be ATTENDANCE, HOMEWORK, TEST or UNKNOWN
    * @param weight   The weight to the final grade
+   * @param status   The status of current work
    */
-  public CoursePartWork(String name, String category, String grade,
-      double weight) {
+  public CoursePartWork(String name, String category, double grade, 
+      String status, double weight) {
     this.name = name;
+    this.status = status;
     this.category = category;
     this.weight = weight;
     this.grade = grade;
@@ -87,7 +90,7 @@ public class CoursePartWork {
    *
    * @return The grade of this part work
    */
-  public String getGrade() {
+  public double getGrade() {
     return grade;
   }
 
@@ -96,7 +99,7 @@ public class CoursePartWork {
    *
    * @param grade The new grade of this part work
    */
-  public void setGrade(String grade) {
+  public void setGrade(double grade) {
     this.grade = grade;
   }
 
@@ -106,7 +109,7 @@ public class CoursePartWork {
    * @return True if this course park work has grade
    */
   public boolean hasGrade() {
-    return !grade.equals("IPR");
+    return !(status == "IPR");
   }
 
 }

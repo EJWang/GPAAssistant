@@ -1,5 +1,8 @@
 package module;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import module.Course;
 
 /**
@@ -13,6 +16,7 @@ import module.Course;
 public class CourseAnalyzer {
 
   private Course course;
+  private List<CoursePartWork> coursePartWork;
 
   /**
    * Construct a module.CourseAnalyzer.
@@ -21,6 +25,7 @@ public class CourseAnalyzer {
    */
   public CourseAnalyzer(Course course) {
     this.course = course;
+    this.coursePartWork = new ArrayList<CoursePartWork>();
   }
 
   /**
@@ -32,7 +37,7 @@ public class CourseAnalyzer {
    * @return The possible maximum final mark of this course
    */
   public double getPossibleMaximumFinalMark() {
-    return 0.0;
+    CoursePartWork.
   }
 
   /**

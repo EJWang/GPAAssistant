@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * The entry-point of the GPAAssistant.
+ * The starting user interface of the GPAAssistant.
  *
  * @author EJWang
  */
@@ -37,7 +37,7 @@ public class GPAAssistant {
   }
 
   /**
-   * The entry-point of the GPAAssistant.
+   * The starting user interface of the GPAAssistant.
    *
    * @param args The array of arguments pass to this function
    */
