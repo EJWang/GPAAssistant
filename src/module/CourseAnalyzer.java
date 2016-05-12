@@ -37,31 +37,40 @@ public class CourseAnalyzer {
    * @return The possible maximum final mark of this course
    */
   public double getPossibleMaximumFinalMark() {
-    CoursePartWork.
+    double finalMark = 0.0;
+    double restPercentage = 100;
+    for(CoursePartWork i: coursePartWork){
+      double grade = i.getGrade();
+      double partFinalGrade = grade/ i.getWeight() * i.getWeight();
+      restPercentage -= i.getWeight();
+      finalMark += partFinalGrade;
+    };
+    return finalMark + restPercentage;
+        
   }
 
   /**
    * Calculate the possible work final mark of this course.
    * Analyze all grade earned from same type of the part works and calculate
-   * the worst grade based on the tendency to get the grade that might earned
-   * by this student at the end.
+   * the  final grade based on the current average of all work.
    *
    * @return The possible worst final mark of this course
    */
-  public double calculatePossibleWorstFinalMark() {
-    return 0.0;
-  }
-
-  /**
-   * Calculate the possible best final mark of this course.
-   * Analyze all grade earned from same type of the part works and calculate
-   * the best grade based on the tendency to get the grade that might earned
-   * by this student at the end.
-   *
-   * @return The possible worst final mark of this course
-   */
-  public double calculatePossibleBestFinalMark() {
-    return 0.0;
+  public double calculateAveragePossibleFinalMark() {
+    double finalMark = 0.0;
+    double restPercentage = 100;
+    double tendencyAverage =0.0;
+    for(CoursePartWork i: coursePartWork){
+      double grade = i.getGrade();
+      double partFinalGrade = grade/ i.getWeight() * i.getWeight();
+      tendencyAverage += grade;
+      restPercentage -= i.getWeight();
+      finalMark += partFinalGrade;
+    };
+    //The prediction of the rest of non-available mark
+    tendencyAverage = tendencyAverage / coursePartWork.size() *restPercentage;
+    return finalMark + tendencyAverage;
+        
   }
 
   /**
@@ -71,7 +80,7 @@ public class CourseAnalyzer {
    *
    * @return The possible custom analyzed final mark of this course
    */
-  public double calculateCustomAnalzyedFinalMark() {
+  public double calculateCustomAnalzyedFinalMark(double mark, double weight) {
     return 0.0;
   }
 }
