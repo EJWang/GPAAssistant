@@ -5,6 +5,7 @@ package module;
  * For example, the midterm, assignment, essay are part of the course.
  *
  * @author EJWang
+ * @author Yu Ang Zhang
  */
 public class CoursePartWork {
 
@@ -24,6 +25,7 @@ public class CoursePartWork {
    */
   public CoursePartWork(String name, String category, double grade, 
       String status, double weight) {
+    // Iterator design pattern is optional
     this.name = name;
     this.status = status;
     this.category = category;
