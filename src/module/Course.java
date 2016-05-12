@@ -1,13 +1,14 @@
 package module;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
+
 import java.util.List;
 
 /**
  * A course that is offered from school.
  *
  * @author EJWang
+ * @author Yu Ang Zhang
  */
 public class Course {
 
@@ -32,11 +33,12 @@ public class Course {
       String[] workInfo = courseInfo[i].split(":");
       String workName = workInfo[0];
       String category = workInfo[1];
-      String grade = workInfo[2];
+      double grade = Double.parseDouble(workInfo[2]);
       double weight = Double.parseDouble(workInfo[3]);
 
       // Create CoursePartWork object then add it into partWorks
-      partWorks.add(new CoursePartWork(workName, category, grade, weight));
+      partWorks.add(new CoursePartWork(workName, category, grade,
+          status,weight));
     }
   }
 
@@ -88,12 +90,17 @@ public class Course {
   }
 
   /**
-   * Modified the earned grade.
+   * Calculate the earned grade if the course is still not finished.
    *
-   * @param earnedGrade The new earned grade
+   * @return The earned grade of this course if is in "IPR"
    */
-  public void setEarnedGrade(double earnedGrade) {
-    this.earnedGrade = earnedGrade;
+  public double calculatePartialEarnedGrade() {
+    double partialTotal = 0.0;
+    for(CoursePartWork i: partWorks){
+      earnedGrade += (i.getGrade()/i.getWeight());
+      partialTotal+=i.getWeight();
+    }
+    return earnedGrade/partialTotal;
   }
 
   /**
