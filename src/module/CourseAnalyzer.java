@@ -1,7 +1,6 @@
 package module;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import module.Course;
 
@@ -12,11 +11,12 @@ import module.Course;
  * final mark.
  *
  * @author EJWang
+ * @author Yu Ang Zhang
  */
 public class CourseAnalyzer {
 
   private Course course;
-  private List<CoursePartWork> coursePartWork;
+ 
 
   /**
    * Construct a module.CourseAnalyzer.
@@ -25,7 +25,7 @@ public class CourseAnalyzer {
    */
   public CourseAnalyzer(Course course) {
     this.course = course;
-    this.coursePartWork = new ArrayList<CoursePartWork>();
+
   }
 
   /**
@@ -39,7 +39,7 @@ public class CourseAnalyzer {
   public double getPossibleMaximumFinalMark() {
     double finalMark = 0.0;
     double restPercentage = 100;
-    for(CoursePartWork i: coursePartWork){
+    for(CoursePartWork i: course.getPartWorks()){
       double grade = i.getGrade();
       double partFinalGrade = grade/ i.getWeight() * i.getWeight();
       restPercentage -= i.getWeight();
@@ -60,7 +60,7 @@ public class CourseAnalyzer {
     double finalMark = 0.0;
     double restPercentage = 100;
     double tendencyAverage =0.0;
-    for(CoursePartWork i: coursePartWork){
+    for(CoursePartWork i: course.getPartWorks()){
       double grade = i.getGrade();
       double partFinalGrade = grade/ i.getWeight() * i.getWeight();
       tendencyAverage += grade;
@@ -68,7 +68,8 @@ public class CourseAnalyzer {
       finalMark += partFinalGrade;
     };
     //The prediction of the rest of non-available mark
-    tendencyAverage = tendencyAverage / coursePartWork.size() *restPercentage;
+    tendencyAverage = tendencyAverage / course.getPartWorks().
+        size() *restPercentage;
     return finalMark + tendencyAverage;
         
   }
