@@ -39,10 +39,9 @@ public class Controller {
   /**
    * Parse to the interface of MainFrame and display it to the user
    * 
-   * @return The interface of mainFrame;
    */
-  public MainFrame showMainFrame() {
-    return mainFrame;
+  public void showMainFrame() {
+   this.mainFrame.Display();
 
   }
   /**
@@ -50,7 +49,7 @@ public class Controller {
    * 
    * @return The interface of newUserFrame;
    */
-  public NewUserFrame newUserFrame() {
+  public NewUserFrame shownewUserFrame() {
     return newUserFrame;
 
   }
@@ -61,13 +60,14 @@ public class Controller {
    * @return The interface of oldUserFrame;
    */
   
-  public OldUserFrame oldUserFrame() {
+  public OldUserFrame showoldUserFrame() {
     return oldUserFrame;
 
   }
 
   public void showOperateFrame() throws IOException {
-
+    configurator.loadData();
+    
 
   }
 
