@@ -9,8 +9,12 @@ import java.awt.*;
  *
  * @author EJWang
  */
+@SuppressWarnings("serial")
 public class MainFrame extends JFrame {
 
+  /**
+   * 
+   */
   private Controller controller;
 
   /**
@@ -33,7 +37,7 @@ public class MainFrame extends JFrame {
   }
 
   /**
-   * Load old user interface.
+   * Load old user's interface.
    */
   private void oldUser() {
     JButton first = new JButton("1. View Academic History");
@@ -44,6 +48,9 @@ public class MainFrame extends JFrame {
     add(second);
     add(third);
   }
+  /**
+   *  Load new user's interface.
+   */
 
   private void newUser() {
     setLayout(new FlowLayout());
@@ -52,7 +59,7 @@ public class MainFrame extends JFrame {
 
     JLabel school = new JLabel("Please enter your school's name");
     JTextField schoolName = new JTextField(15);
-
+    // Builder design pattern?
     JButton confirm = new JButton("Ok");
 
     add(name);
@@ -60,6 +67,17 @@ public class MainFrame extends JFrame {
     add(school);
     add(schoolName);
     add(confirm);
+  }
+  public void Display(){
+    
+    
+  }
+  /**
+   * Parse to the process of exiting from the program; User's interface will
+   * display
+   */
+  public void Exit(){
+    controller.actionExit();
   }
 
 }
