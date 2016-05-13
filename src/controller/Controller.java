@@ -16,7 +16,8 @@ import javax.xml.crypto.Data;
  */
 public class Controller {
 
-  // The student object which stores all the academic information
+  // The student is a consistent object 
+  // which stores all the academic information
   private Student student;
 
   private DataConfigurator configurator;
@@ -34,7 +35,8 @@ public class Controller {
     mainFrame.setVisible(true);
   }
 
-  public void showMainFrame() {
+  public MainFrame showMainFrame() {
+    return mainFrame;
 
   }
 
