@@ -44,5 +44,6 @@ public class GPAAssistant {
   public static void main(String[] args) throws IOException {
     DEBUGLoadConfig();
     //new Controller();
+    Controller controller = new Controller();
   }
 }
