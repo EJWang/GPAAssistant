@@ -45,5 +45,7 @@ public class GPAAssistant {
     DEBUGLoadConfig();
     //new Controller();
     Controller controller = new Controller();
+    controller.showMainFrame();
+    controller.showOperateFrame();
   }
 }
