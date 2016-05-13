@@ -1,6 +1,8 @@
 package view;
 
 import controller.Controller;
+
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -29,10 +31,14 @@ public class MainFrame extends JFrame {
     setVisible(true);
 
     // Load background image
-//    setContentPane(new Background());
+    setContentPane(new Container());
+    
 
-    JLabel welcome = new JLabel("Welcome to use GPA Assistant!");
+    JLabel welcome = new JLabel("Welcome to GPA Assistant");
+    JLabel greet = new JLabel("Wish you have a great performance on your study"
+        + "");
     add(welcome);
+    add(greet);
 
   }
 
@@ -67,6 +73,7 @@ public class MainFrame extends JFrame {
     add(school);
     add(schoolName);
     add(confirm);
+   
   }
   public void Display(){
     
