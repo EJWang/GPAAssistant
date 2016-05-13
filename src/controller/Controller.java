@@ -6,6 +6,8 @@ import view.MainFrame;
 import view.NewUserFrame;
 import view.OldUserFrame;
 
+import java.io.IOException;
+
 import javax.xml.crypto.Data;
 
 /**
@@ -16,8 +18,8 @@ import javax.xml.crypto.Data;
  */
 public class Controller {
 
-  // The student is a consistent object 
-  // which stores all the academic information
+  // The student is a consistent object  which stores all the 
+  // academic information.
   private Student student;
 
   private DataConfigurator configurator;
@@ -34,13 +36,38 @@ public class Controller {
     mainFrame = new MainFrame(this);
     mainFrame.setVisible(true);
   }
-
+  /**
+   * Parse to the interface of MainFrame and display it to the user
+   * 
+   * @return The interface of mainFrame;
+   */
   public MainFrame showMainFrame() {
     return mainFrame;
 
   }
+  /**
+    * Parse to the interface of newUserFrame and display it to the user
+   * 
+   * @return The interface of newUserFrame;
+   */
+  public NewUserFrame newUserFrame() {
+    return newUserFrame;
 
-  public void showOperateFrame() {
+  }
+  /**
+  /**
+    * Parse to the interface of oldUserFrame and display it to the user
+   * 
+   * @return The interface of oldUserFrame;
+   */
+  
+  public OldUserFrame oldUserFrame() {
+    return oldUserFrame;
+
+  }
+
+  public void showOperateFrame() throws IOException {
+
 
   }
 
@@ -52,6 +79,7 @@ public class Controller {
   public boolean actionExit() {
     try {
       // Call configurator to save the data into the configuration file
+      configurator.saveData();
 
       return true;
 
